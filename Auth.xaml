@@ -26,11 +26,11 @@
         <Label Content="Пароль" FontSize="14" Grid.Row="1" Margin="0,0,161,56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="63" Grid.Column="1"/>
         <Label Content="Код" FontSize="14" Grid.Row="1" Margin="0,0,161,23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="63" Grid.Column="1"/>
 
-        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,10,7,90"/>
-        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,44,7,55"/>
-        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,78,50,21"/>
+        <TextBox x:Name="textboxNumber" Text="" Grid.Column="1" Grid.Row="1" Margin="78,10,7,90" KeyUp="textboxNumber_KeyUp"/>
+        <TextBox x:Name="textboxPassword" Text="" Grid.Column="1" Grid.Row="1" Margin="78,44,7,55" IsEnabled="False" KeyUp="textboxPassword_KeyUp"/>
+        <TextBox x:Name="textboxCode" Text="" Grid.Column="1" Grid.Row="1" Margin="78,78,50,21" IsEnabled="False" TextChanged="textboxCode_TextChanged"/>
 
-        <Button Content="Отмена" Grid.Column="1" Grid.Row="2" Margin="78,20,85,43"/>
-        <Button Content="Вход" Grid.Column="1" Grid.Row="2" Margin="156,20,7,43"/>
+        <Button x:Name="btnCancel" Content="Отмена" Grid.Column="1" Grid.Row="2" Margin="78,20,85,43"/>
+        <Button x:Name="btnEnter" Content="Вход" Grid.Column="1" Grid.Row="2" Margin="156,20,7,43" IsEnabled="False" Click="btnEnter_Click"/>
     </Grid>
 </Window>
