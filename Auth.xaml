@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assets"
         mc:Ignorable="d"
-        Title="Auth" Height="450" Width="800">
+        Title="Авторизация" Height="350" Width="525" MinHeight="350" MinWidth="525" MaxHeight="350" MaxWidth="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="165*"/>
+            <RowDefinition Height="117*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="68*"/>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="77*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Images/logo.jpg" Grid.Column="2" HorizontalAlignment="Right" Width="151" Grid.RowSpan="2" Height="118" VerticalAlignment="Top"/>
+        <Image Source="Images/refresh.jpg" Grid.Column="1" Grid.Row="1" Margin="190,79,10,21"/>
+
+        <Label Content="Телеком Нева Связь" FontSize="20" Grid.ColumnSpan="2" Margin="30,27,0,0" Height="59" VerticalAlignment="Top" HorizontalAlignment="Left" Width="381"/>
+        <Label Content="Номер" FontSize="14" Grid.Row="1" Margin="0,0,169,90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="55" Grid.Column="1"/>
+        <Label Content="Пароль" FontSize="14" Grid.Row="1" Margin="0,0,161,56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="63" Grid.Column="1"/>
+        <Label Content="Код" FontSize="14" Grid.Row="1" Margin="0,0,161,23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="63" Grid.Column="1"/>
+
+        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,10,7,90"/>
+        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,44,7,55"/>
+        <TextBox Text="" Grid.Column="1" Grid.Row="1" Margin="78,78,50,21"/>
+
+        <Button Content="Отмена" Grid.Column="1" Grid.Row="2" Margin="78,20,85,43"/>
+        <Button Content="Вход" Grid.Column="1" Grid.Row="2" Margin="156,20,7,43"/>
     </Grid>
 </Window>
