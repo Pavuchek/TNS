@@ -28,40 +28,40 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" BorderBrush="#FFE6E6E6" BorderThickness="0,0,2,0" Width="100">
-            <Grid Background="White">
+        <Border x:Name="menuBorder" Grid.Column="0" BorderBrush="#FFE6E6E6" BorderThickness="0,0,2,0" Width="100">
+            <Grid x:Name="verticalMenu" Background="White" MouseLeave="verticalMenu_MouseLeave" MouseEnter="verticalMenu_MouseEnter">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <Image Source="Images/logo.jpg" Height="85" Width="85" IsEnabled="False"></Image>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                <StackPanel x:Name="menuOpen" Grid.Row="0" Visibility="Visible">
+                    <Image x:Name="imgLogo" Source="Images/logo.jpg" Height="85" Width="85" IsEnabled="False"></Image>
+                    <Button x:Name="btnSubscribers" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="Абоненты" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
                     </Button>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                    <Button x:Name="btnEquipment" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="Управление оборудованием" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
                     </Button>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                    <Button x:Name="btnAssets" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
                     </Button>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                    <Button x:Name="btnBilling" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="Биллинг" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
                     </Button>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                    <Button x:Name="btnSupport" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="Поддержка пользователей" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
                     </Button>
-                    <Button Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
+                    <Button x:Name="btnCRM" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0">
                         <Button.Content>
                             <TextBlock Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button.Content>
@@ -69,8 +69,18 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-                    <Button Content="проф." Style="{StaticResource RoundButton}" Width="35" Height="35"  Background="#FFE6E6E6" Margin="0,0,0,3"></Button>
-                    <Button Content="?" FontSize="20" FontWeight="Bold" Style="{StaticResource RoundButton}" Width="35" Height="35" Background="#FFE6E6E6" Margin="0,0,0,10"/>
+                    <Button x:Name="btnProf" Content="проф." Style="{StaticResource RoundButton}" Width="35" Height="35"  Background="#FFE6E6E6" Margin="0,0,0,3"></Button>
+                    <Button x:Name="btnHelp" Content="?" FontSize="20" FontWeight="Bold" Style="{StaticResource RoundButton}" Width="35" Height="35" Background="#FFE6E6E6" Margin="0,0,0,10"/>
+                </StackPanel>
+
+                <StackPanel x:Name="menuFold" Grid.Row="0" Visibility="Hidden">
+                    <Image Source="Images/logo.jpg" Height="45" IsEnabled="False"></Image>
+                    <Image Source="Images/Subscribers.png" Height="45" Margin="0,0,0,5"></Image>
+                    <Image Source="Images/Equipment.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image Source="Images/Assets.png" Height="45" Margin="0,0,0,5"></Image>
+                    <Image Source="Images/Billing.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image Source="Images/Support.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image Source="Images/CRM.png" Height="45" Margin="0,0,0,5"></Image>
                 </StackPanel>
             </Grid>
         </Border>

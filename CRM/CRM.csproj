@@ -98,7 +98,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\CRM.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
   </ItemGroup>
@@ -107,6 +109,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\refresh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Assets.png" />
+    <Resource Include="Images\Billing.jpg" />
+    <Resource Include="Images\Equipment.jpg" />
+    <Resource Include="Images\Subscribers.png" />
+    <Resource Include="Images\Support.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
