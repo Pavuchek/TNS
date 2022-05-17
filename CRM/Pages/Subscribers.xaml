@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CRM.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Initialized="Grid_Initialized">
         <DataGrid x:Name="listSubscribers" IsReadOnly="True"/>
     </Grid>
 </UserControl>

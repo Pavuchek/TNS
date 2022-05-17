@@ -30,7 +30,7 @@ namespace CRM
         {
             InitializeComponent();
             contentControl.Content = new CRM.Pages.Subscribers();
-            string conStr = @"Data Source=.\SQLEXPRESS; Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True;";
+            string conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
             connection = new SqlConnection(conStr);
 
             connection.Open();
@@ -84,6 +84,27 @@ namespace CRM
         {
             try
             {
+                btnAssets.Visibility = Visibility.Hidden;
+                btnBilling.Visibility = Visibility.Hidden;
+                btnCRM.Visibility = Visibility.Hidden;
+                btnEquipment.Visibility = Visibility.Hidden;
+                btnSubscribers.Visibility = Visibility.Hidden;
+                btnSupport.Visibility = Visibility.Hidden;
+
+                btnAssets.Margin = new Thickness(0, 0, 0, 5);
+                btnBilling.Margin = new Thickness(0, 0, 0, 5);
+                btnCRM.Margin = new Thickness(0, 0, 0, 5);
+                btnEquipment.Margin = new Thickness(0, 0, 0, 5);
+                btnSubscribers.Margin = new Thickness(0, 0, 0, 5);
+                btnSupport.Margin = new Thickness(0, 0, 0, 5);
+
+                imgAssets.Visibility = Visibility.Hidden;
+                imgBilling.Visibility = Visibility.Hidden;
+                imgCRM.Visibility = Visibility.Hidden;
+                imgEquipment.Visibility = Visibility.Hidden;
+                imgSubscribers.Visibility = Visibility.Hidden;
+                imgSupport.Visibility = Visibility.Hidden;
+
                 connection.Open();
                 SqlCommand query = new SqlCommand("SELECT * FROM Sotrudnik WHERE ФИО=@name", connection);
 
@@ -98,71 +119,103 @@ namespace CRM
                     int positionIndex = reader.GetOrdinal("Должность");
                     position = reader.GetString(positionIndex);
                 }
-                imgPhoto.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/Images/Users/{id}.png", UriKind.RelativeOrAbsolute));
 
-                if(position == "Руководитель отдела по работе с клиентами")
+                if (position == "Руководитель по работе с клиентами")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
                     btnBilling.Visibility = Visibility.Visible;
                     btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Hidden;
                     btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Hidden;
+
+                    imgBilling.Visibility = Visibility.Visible;
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+
+                    btnBilling.Margin = new Thickness(0, -125, 0, 0);
+                    btnCRM.Margin = new Thickness(0, -125, 0, 0);
+
+                    imgBilling.Margin = new Thickness(0, -175, 0, 0);
+                    imgCRM.Margin = new Thickness(0, -175, 0, 0);
                 }
-                else if(position == "Менеджер по работе с клиентами")
+                else if (position == "Менеджер по работе с клиентами")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
-                    btnBilling.Visibility = Visibility.Hidden;
                     btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Hidden;
                     btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Hidden;
+
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+
+                    btnCRM.Margin = new Thickness(0, -290, 0, 0);
+
+                    imgCRM.Margin = new Thickness(0, -375, 0, 0);
                 }
-                else if (position == "Руководитель отдела технической поддержки")
+                else if (position == "Руководитель отдела технической поддержки" || position == "Специалист технической поддержки")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
-                    btnBilling.Visibility = Visibility.Hidden;
                     btnCRM.Visibility = Visibility.Visible;
                     btnEquipment.Visibility = Visibility.Visible;
                     btnSubscribers.Visibility = Visibility.Visible;
                     btnSupport.Visibility = Visibility.Visible;
-                }
-                else if (position == "Специалист технической поддержки ")
-                {
-                    btnAssets.Visibility = Visibility.Hidden;
-                    btnBilling.Visibility = Visibility.Hidden;
-                    btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Visible;
-                    btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Visible;
+
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgEquipment.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+                    imgSupport.Visibility = Visibility.Visible;
+
+                    btnCRM.Margin = new Thickness(0, -45, 0, 0);
+                    btnSupport.Margin = new Thickness(0, -125, 0, 0);
+
+                    imgCRM.Margin = new Thickness(0, -65, 0, 0);
+                    imgSupport.Margin = new Thickness(0, -160, 0, 0);
                 }
                 else if (position == "Бухгалтер")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
                     btnBilling.Visibility = Visibility.Visible;
                     btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Hidden;
                     btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Hidden;
+
+                    imgBilling.Visibility = Visibility.Visible;
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+
+                    btnCRM.Margin = new Thickness(0, -125, 0, 0);
+                    btnBilling.Margin = new Thickness(0, -125, 0, 0);
+
+                    imgCRM.Margin = new Thickness(0, -175, 0, 0);
+                    imgBilling.Margin = new Thickness(0, -175, 0, 0);
                 }
                 else if (position == "Директор по развитию")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
-                    btnBilling.Visibility = Visibility.Hidden;
+                    btnAssets.Visibility = Visibility.Visible;
+                    btnBilling.Visibility = Visibility.Visible;
                     btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Hidden;
+                    btnEquipment.Visibility = Visibility.Visible;
                     btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Hidden;
+                    btnSupport.Visibility = Visibility.Visible;
+
+                    imgAssets.Visibility = Visibility.Visible;
+                    imgBilling.Visibility = Visibility.Visible;
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgEquipment.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+                    imgSupport.Visibility = Visibility.Visible;
                 }
                 else if (position == "Специалист ТП (выездной инженер)" || position == "Технический департамент")
                 {
-                    btnAssets.Visibility = Visibility.Hidden;
-                    btnBilling.Visibility = Visibility.Hidden;
+                    btnAssets.Visibility = Visibility.Visible;
                     btnCRM.Visibility = Visibility.Visible;
-                    btnEquipment.Visibility = Visibility.Hidden;
+                    btnEquipment.Visibility = Visibility.Visible;
                     btnSubscribers.Visibility = Visibility.Visible;
-                    btnSupport.Visibility = Visibility.Hidden;
+
+                    imgAssets.Visibility = Visibility.Visible;
+                    imgCRM.Visibility = Visibility.Visible;
+                    imgEquipment.Visibility = Visibility.Visible;
+                    imgSubscribers.Visibility = Visibility.Visible;
+
+                    btnCRM.Margin = new Thickness(0, -125, 0, 0);
+
+                    imgCRM.Margin = new Thickness(0, -160, 0, 0);
                 }
+
+                imgPhoto.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/Images/Users/{id}.png", UriKind.RelativeOrAbsolute));
             }
             catch
             {
@@ -177,6 +230,31 @@ namespace CRM
         private void btnSubscribers_Click(object sender, RoutedEventArgs e)
         {
             contentControl.Content = new CRM.Pages.Subscribers();
+        }
+
+        private void btnEquipment_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new CRM.Pages.Equipment();
+        }
+
+        private void btnAssets_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new CRM.Pages.Assets();
+        }
+
+        private void btnBilling_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new CRM.Pages.Billing();
+        }
+
+        private void btnSupport_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new CRM.Pages.Support();
+        }
+
+        private void btnCRM_Click(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new CRM.Pages.CRM();
         }
     }
 }

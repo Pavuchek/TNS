@@ -27,11 +27,16 @@ namespace CRM.Pages
 
         public Subscribers()
         {
-            InitializeComponent();
-            string conStr = @"Data Source=.\SQLEXPRESS; Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True;";
+            string conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
             connection = new SqlConnection(conStr);
+            InitializeComponent();
+        }
+
+        private void Grid_Initialized(object sender, EventArgs e)
+        {
+            listSubscribers.Items.Clear();
             connection.Open();
-            SqlCommand query = new SqlCommand("SELECT Номер_абонента, ФИО, Номер_договора, Услуги, Услуги1, Услуги2 Лицевой_счет FROM Abonenti", connection);
+            SqlCommand query = new SqlCommand("SELECT Номер_абонента as 'Номер абонента', ФИО, Номер_договора as 'Номер договора', (Услуги + ', ' + Услуги1 + ', ' + Услуги2) as Услуги, Лицевой_счет as 'Лицевой счет' FROM Abonenti", connection);
 
             query.ExecuteNonQuery();
 
