@@ -71,8 +71,50 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Assets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Billing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CRM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Subscribers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Support.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Assets.xaml.cs">
+      <DependentUpon>Assets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Billing.xaml.cs">
+      <DependentUpon>Billing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CRM.xaml.cs">
+      <DependentUpon>CRM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Equipment.xaml.cs">
+      <DependentUpon>Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Subscribers.xaml.cs">
+      <DependentUpon>Subscribers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Support.xaml.cs">
+      <DependentUpon>Support.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +131,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,6 +159,31 @@
     <Resource Include="Images\Equipment.jpg" />
     <Resource Include="Images\Subscribers.png" />
     <Resource Include="Images\Support.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\ID1516.png" />
+    <Resource Include="Images\Users\ID1521.png" />
+    <Resource Include="Images\Users\ID1523.png" />
+    <Resource Include="Images\Users\ID1524.png" />
+    <Resource Include="Images\Users\ID1525.png" />
+    <Resource Include="Images\Users\ID1526.png" />
+    <Resource Include="Images\Users\ID1527.png" />
+    <Resource Include="Images\Users\ID1528.png" />
+    <Resource Include="Images\Users\ID1529.png" />
+    <Resource Include="Images\Users\ID1530.png" />
+    <Resource Include="Images\Users\ID1531.png" />
+    <Resource Include="Images\Users\ID1532.png" />
+    <Resource Include="Images\Users\ID1533.png" />
+    <Resource Include="Images\Users\ID1534.png" />
+    <Resource Include="Images\Users\ID1537.png" />
+    <Resource Include="Images\Users\ID1538.png" />
+    <Resource Include="Images\Users\ID1540.png" />
+    <Resource Include="Images\Users\ID1541.png" />
+    <Resource Include="Images\Users\ID1542.png" />
+    <Resource Include="Images\Users\ID1543.png" />
+    <Resource Include="Images\Users\ID1544.png" />
+    <Resource Include="Images\Users\ID1545.png" />
+    <Resource Include="Images\Users\noPhoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

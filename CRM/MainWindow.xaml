@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRM"
         mc:Ignorable="d"
-        Title="Работа с абонентами" Height="550" Width="800">
+        Title="Работа с абонентами" Height="550" Width="800" MinHeight="550" MinWidth="800">
     <Window.Resources>
         <Style x:Key="RoundButton" TargetType="Button">
             <Setter Property="Width" Value="25"/>
@@ -84,5 +84,18 @@
                 </StackPanel>
             </Grid>
         </Border>
+
+        <TextBlock Grid.Column="1" FontSize="30" Width="250" Height="100" Text="Абоненты ТНС" TextAlignment="Left" Padding="0,25,0,0" Margin="25,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
+
+        <Border Grid.Column="1" Width="500" Height="350" HorizontalAlignment="Left" Margin="5,100,0,0" BorderThickness="0,2,0,0" BorderBrush="#FFE6E6E6">
+            <ContentControl x:Name="contentControl"></ContentControl>
+        </Border>
+
+        <ComboBox Grid.Column="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,35,75,0" Name="UsersComboBox" SelectionChanged="UsersComboBox_SelectionChanged"></ComboBox>
+        <Ellipse Grid.Column="1" Width="50" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,23,12,0">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="imgPhoto" ImageSource="Images/Users/noPhoto.png"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
     </Grid>
 </Window>
