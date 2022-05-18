@@ -25,6 +25,8 @@ namespace CRM
         string name = "";
         string id = "";
         string position = "";
+        string ivents = "";
+        string ivent = "";
 
         public MainWindow()
         {
@@ -34,8 +36,7 @@ namespace CRM
             connection = new SqlConnection(conStr);
 
             connection.Open();
-            SqlCommand query = new SqlCommand("SELECT * FROM Sotrudnik");
-            query.Connection = connection;
+            SqlCommand query = new SqlCommand("SELECT * FROM Sotrudnik", connection);
 
             SqlDataReader reader = query.ExecuteReader();
             while (reader.Read())
@@ -45,8 +46,8 @@ namespace CRM
 
                 UsersComboBox.Items.Add(name);
             }
-
             reader.Close();
+
             connection.Close();
         }
 
@@ -105,6 +106,13 @@ namespace CRM
                 imgSubscribers.Visibility = Visibility.Hidden;
                 imgSupport.Visibility = Visibility.Hidden;
 
+                textBlock1.Text = null;
+                textBlock2.Text = null;
+                textBlock3.Text = null;
+                textBlock4.Text = null;
+                textBlock5.Text = null;
+                textBlock6.Text = null;
+
                 connection.Open();
                 SqlCommand query = new SqlCommand("SELECT * FROM Sotrudnik WHERE ФИО=@name", connection);
 
@@ -119,6 +127,84 @@ namespace CRM
                     int positionIndex = reader.GetOrdinal("Должность");
                     position = reader.GetString(positionIndex);
                 }
+                reader.Close();
+
+
+                SqlCommand query1 = new SqlCommand("SELECT * FROM InformDlyaSotrudnikov WHERE Должность=@position", connection);
+
+                query1.Parameters.AddWithValue("@position", position);
+
+                SqlDataReader reader1 = query1.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    int iventIndex = reader1.GetOrdinal("События");
+                    ivents = reader1.GetString(iventIndex);
+                }
+                reader1.Close();
+                int startIvent = 0;
+                int index = 1;
+
+                for (int i = 0; i < ivents.Length; i++)
+                {
+                    if(ivents[i] == ',' || i == ivents.Length - 1)
+                    {
+                        int endIvent = i + 1;
+                        ivent = "";
+
+                        for(; startIvent < endIvent; startIvent++)
+                        {
+                            ivent += ivents[startIvent];
+                        }
+
+                        if(ivent.EndsWith(","))
+                        {
+                            ivent = ivent.Remove(ivent.Length - 1);
+                        }
+
+                        switch(index)
+                        {
+                            case 1:
+                                textBlock1.Text = ivent;
+                                break;
+
+                            case 2:
+                                textBlock2.Text = ivent;
+                                break;
+
+                            case 3:
+                                textBlock3.Text = ivent;
+                                break;
+
+                            case 4:
+                                textBlock4.Text = ivent;
+                                break;
+
+                            case 5:
+                                textBlock5.Text = ivent;
+                                break;
+
+                            case 6:
+                                textBlock6.Text = ivent;
+                                break;
+
+                            default:
+                                MessageBox.Show("Вы привысили максимальное количество событий", "Ошибка");
+                                break;
+                        }
+
+                        index++;
+
+                        if (index == 6)
+                        {
+                            break;
+                        }
+
+                        startIvent = endIvent + 1;
+                    }
+                }
+
+
 
                 if (position == "Руководитель по работе с клиентами")
                 {
