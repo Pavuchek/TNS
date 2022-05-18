@@ -28,11 +28,13 @@ namespace CRM
         string ivents = "";
         string ivent = "";
 
+        public Pages.CRM crm = new Pages.CRM();
+
         public MainWindow()
         {
             InitializeComponent();
             contentControl.Content = new CRM.Pages.Subscribers();
-            string conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
+            string conStr = @"Data Source=DESKTOP-96QPEGU;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
             connection = new SqlConnection(conStr);
 
             connection.Open();
@@ -315,32 +317,50 @@ namespace CRM
 
         private void btnSubscribers_Click(object sender, RoutedEventArgs e)
         {
+            textblockName.Text = "Абоненты ТНС";
             contentControl.Content = new CRM.Pages.Subscribers();
+            blockIvents.Visibility = Visibility.Visible;
+            borderContent.Width = 500;
         }
 
         private void btnEquipment_Click(object sender, RoutedEventArgs e)
         {
+            textblockName.Text = "Управление оборудованием";
             contentControl.Content = new CRM.Pages.Equipment();
+            blockIvents.Visibility = Visibility.Hidden;
+            borderContent.Width = 680;
         }
 
         private void btnAssets_Click(object sender, RoutedEventArgs e)
         {
+            textblockName.Text = "Активы";
             contentControl.Content = new CRM.Pages.Assets();
+            blockIvents.Visibility = Visibility.Hidden;
+            borderContent.Width = 680;
         }
 
         private void btnBilling_Click(object sender, RoutedEventArgs e)
         {
+            textblockName.Text = "Биллинг";
             contentControl.Content = new CRM.Pages.Billing();
+            blockIvents.Visibility = Visibility.Hidden;
+            borderContent.Width = 680;
         }
 
         private void btnSupport_Click(object sender, RoutedEventArgs e)
         {
+            textblockName.Text = "Поддержка пользователей";
             contentControl.Content = new CRM.Pages.Support();
+            blockIvents.Visibility = Visibility.Hidden;
+            borderContent.Width = 680;
         }
 
         private void btnCRM_Click(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new CRM.Pages.CRM();
+            textblockName.Text = "CRM";
+            contentControl.Content = crm;
+            blockIvents.Visibility = Visibility.Hidden;
+            borderContent.Width = 680;
         }
     }
 }

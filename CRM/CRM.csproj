@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CheckEquipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CRM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +106,9 @@
     </Compile>
     <Compile Include="Pages\Billing.xaml.cs">
       <DependentUpon>Billing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CheckEquipment.xaml.cs">
+      <DependentUpon>CheckEquipment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CRM.xaml.cs">
       <DependentUpon>CRM.xaml</DependentUpon>

@@ -85,19 +85,19 @@
             </Grid>
         </Border>
 
-        <TextBlock Grid.Column="1" FontSize="30" Width="250" Height="100" Text="Абоненты ТНС" TextAlignment="Left" Padding="0,25,0,0" Margin="25,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
+        <TextBlock x:Name="textblockName" Grid.Column="1" FontSize="30" Width="425" Height="100" Text="Абоненты ТНС" TextAlignment="Left" Padding="0,25,0,0" Margin="25,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
 
-        <Border Grid.Column="1" Width="500" Height="350" HorizontalAlignment="Left" Margin="5,100,0,0" BorderThickness="0,2,0,0" BorderBrush="#FFE6E6E6">
+        <Border x:Name="borderContent" Grid.Column="1" Width="500" Height="400" HorizontalAlignment="Left" Margin="5,100,0,0" BorderThickness="0,2,0,0" BorderBrush="#FFE6E6E6">
             <ContentControl x:Name="contentControl"></ContentControl>
         </Border>
 
-        <ComboBox Grid.Column="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,35,75,0" Name="UsersComboBox" SelectionChanged="UsersComboBox_SelectionChanged"></ComboBox>
-        <Ellipse Grid.Column="1" Width="50" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,23,12,0">
+        <ComboBox Grid.Column="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,27,75,0" Name="UsersComboBox" SelectionChanged="UsersComboBox_SelectionChanged"></ComboBox>
+        <Ellipse Grid.Column="1" Width="50" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,12,12,0">
             <Ellipse.Fill>
                 <ImageBrush x:Name="imgPhoto" ImageSource="Images/Users/noPhoto.png"></ImageBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <StackPanel Grid.Column="1" Height="400" Margin="510,107,0,27" HorizontalAlignment="Left" Width="180">
+        <StackPanel x:Name="blockIvents" Grid.Column="1" Height="335" Margin="510,17,0,52" Width="180">
             <TextBlock Text="События" FontSize="18" Width="180" Height="35" VerticalAlignment="Top" TextAlignment="Center" Padding="0,5,0,0" Background="#FFE6E6E6" ></TextBlock>
             <Border Height="365" BorderThickness="0,2,0,0" BorderBrush="#FFBDBDBD" Background="#FFE6E6E6">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -112,7 +112,5 @@
                 </ScrollViewer>
             </Border>
         </StackPanel>
-        <RadioButton x:Name="radioActive" GroupName="Active" Grid.Column="1" Content="Активные" Margin="10,490,0,0" Width="80" Height="20" HorizontalAlignment="Left"/>
-        <RadioButton x:Name="radioNoActive" GroupName="Active" Grid.Column="1" Content="Неактивные" Margin="150,490,0,0" Width="100" Height="20" HorizontalAlignment="Left"/>
     </Grid>
 </Window>
