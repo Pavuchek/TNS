@@ -24,6 +24,7 @@ namespace CRM.Pages
     {
         SqlConnection connection;
         SqlDataAdapter dataAdp;
+        DataTable dt = new DataTable("Абоненты ТНС");
 
         public Subscribers()
         {
@@ -36,13 +37,15 @@ namespace CRM.Pages
         {
             listSubscribers.Items.Clear();
             connection.Open();
-            SqlCommand query = new SqlCommand("SELECT Номер_абонента as 'Номер абонента', ФИО, Номер_договора as 'Номер договора', (Услуги + ', ' + Услуги1 + ', ' + Услуги2) as Услуги, Лицевой_счет as 'Лицевой счет' FROM Abonenti", connection);
+            SqlCommand query = new SqlCommand("SELECT Номер_абонента as 'Номер абонента', ФИО, Номер_договора as 'Номер договора', (Услуги + ', ' + Услуги1 + ', ' + Услуги2) as Услуги, Лицевой_счет as 'Лицевой счет', Дата_расторжения_договора as 'Дата расторжения договора' FROM Abonenti", connection);
 
             query.ExecuteNonQuery();
 
             dataAdp = new SqlDataAdapter(query);
-            DataTable dt = new DataTable("Абоненты ТНС");
             dataAdp.Fill(dt);
+
+            DataView dv = new DataView(dt);
+            dv.RowFilter = $"'Дата расторжения договора' = ''";
             listSubscribers.ItemsSource = dt.DefaultView;
 
             connection.Close();

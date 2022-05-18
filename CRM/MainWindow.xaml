@@ -112,5 +112,7 @@
                 </ScrollViewer>
             </Border>
         </StackPanel>
+        <RadioButton x:Name="radioActive" GroupName="Active" Grid.Column="1" Content="Активные" Margin="10,490,0,0" Width="80" Height="20" HorizontalAlignment="Left"/>
+        <RadioButton x:Name="radioNoActive" GroupName="Active" Grid.Column="1" Content="Неактивные" Margin="150,490,0,0" Width="100" Height="20" HorizontalAlignment="Left"/>
     </Grid>
 </Window>
