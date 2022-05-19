@@ -34,7 +34,7 @@ namespace CRM
         {
             InitializeComponent();
             contentControl.Content = new CRM.Pages.Subscribers();
-            string conStr = @"Data Source=DESKTOP-96QPEGU;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
+            string conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
             connection = new SqlConnection(conStr);
 
             connection.Open();
@@ -141,6 +141,12 @@ namespace CRM
                 while (reader1.Read())
                 {
                     int iventIndex = reader1.GetOrdinal("События");
+
+                    if(reader1.IsDBNull(iventIndex))
+                    {
+                        continue;
+                    }
+
                     ivents = reader1.GetString(iventIndex);
                 }
                 reader1.Close();

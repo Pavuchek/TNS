@@ -28,7 +28,7 @@ namespace CRM.Pages
 
         public Subscribers()
         {
-            string conStr = @"Data Source=DESKTOP-96QPEGU;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
+            string conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=Database_Telekom_Neva_Svyaz;Integrated Security=True";
             connection = new SqlConnection(conStr);
             InitializeComponent();
         }
