@@ -1,0 +1,116 @@
+﻿<Window x:Class="CRM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRM"
+        mc:Ignorable="d"
+        Title="Работа с абонентами" Height="550" Width="800" MinHeight="550" MinWidth="800" MaxHeight="550" MaxWidth="800">
+    <Window.Resources>
+        <Style x:Key="RoundButton" TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Name="GelBackground" StrokeThickness="1" Stroke="Black" Fill="LightGray">
+                            </Ellipse>
+                            <ContentPresenter Name="GelButtonContent" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="menuBorder" Grid.Column="0" BorderBrush="#FFE6E6E6" BorderThickness="0,0,2,0" Width="100">
+            <Grid x:Name="verticalMenu" Background="White" MouseLeave="verticalMenu_MouseLeave" MouseEnter="verticalMenu_MouseEnter">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="menuOpen" Grid.Row="0" Visibility="Visible">
+                    <Image x:Name="imgLogo" Source="Images/logo.jpg" Height="85" Width="85" IsEnabled="False"></Image>
+                    <Button x:Name="btnSubscribers" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnSubscribers_Click">
+                        <Button.Content>
+                            <TextBlock Text="Абоненты" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnEquipment" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnEquipment_Click">
+                        <Button.Content>
+                            <TextBlock Text="Управление оборудованием" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnAssets" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnAssets_Click">
+                        <Button.Content>
+                            <TextBlock Text="Активы" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnBilling" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnBilling_Click">
+                        <Button.Content>
+                            <TextBlock Text="Биллинг" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnSupport" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnSupport_Click">
+                        <Button.Content>
+                            <TextBlock Text="Поддержка пользователей" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="btnCRM" Height="35" Width="85" Background="#FFE6E6E6" Margin="0,0,0,5" BorderThickness="0,0,0,0" Click="btnCRM_Click">
+                        <Button.Content>
+                            <TextBlock Text="CRM" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                    <Button x:Name="btnProf" Content="проф." Style="{StaticResource RoundButton}" Width="35" Height="35"  Background="#FFE6E6E6" Margin="0,0,0,3"></Button>
+                    <Button x:Name="btnHelp" Content="?" FontSize="20" FontWeight="Bold" Style="{StaticResource RoundButton}" Width="35" Height="35" Background="#FFE6E6E6" Margin="0,0,0,10"/>
+                </StackPanel>
+
+                <StackPanel x:Name="menuFold" Grid.Row="0" Visibility="Hidden">
+                    <Image Source="Images/logo.jpg" Height="45" IsEnabled="False"></Image>
+                    <Image x:Name="imgSubscribers" Source="Images/Subscribers.png" Height="45" Margin="0,0,0,5"></Image>
+                    <Image x:Name="imgEquipment" Source="Images/Equipment.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image x:Name="imgAssets" Source="Images/Assets.png" Height="45" Margin="0,0,0,5"></Image>
+                    <Image x:Name="imgBilling" Source="Images/Billing.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image x:Name="imgSupport" Source="Images/Support.jpg" Height="45" Margin="0,0,0,5"></Image>
+                    <Image x:Name="imgCRM" Source="Images/CRM.png" Height="45" Margin="0,0,0,5"></Image>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TextBlock x:Name="textblockName" Grid.Column="1" FontSize="30" Width="425" Height="100" Text="Абоненты ТНС" TextAlignment="Left" Padding="0,25,0,0" Margin="25,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
+
+        <Border x:Name="borderContent" Grid.Column="1" Width="500" Height="400" HorizontalAlignment="Left" Margin="5,100,0,0" BorderThickness="0,2,0,0" BorderBrush="#FFE6E6E6">
+            <ContentControl x:Name="contentControl"></ContentControl>
+        </Border>
+
+        <ComboBox Grid.Column="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,27,75,0" Name="UsersComboBox" SelectionChanged="UsersComboBox_SelectionChanged"></ComboBox>
+        <Ellipse Grid.Column="1" Width="50" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,12,12,0">
+            <Ellipse.Fill>
+                <ImageBrush x:Name="imgPhoto" ImageSource="Images/Users/noPhoto.png"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <StackPanel x:Name="blockIvents" Grid.Column="1" Height="335" Margin="510,17,0,52" Width="180">
+            <TextBlock Text="События" FontSize="18" Width="180" Height="35" VerticalAlignment="Top" TextAlignment="Center" Padding="0,5,0,0" Background="#FFE6E6E6" ></TextBlock>
+            <Border Height="365" BorderThickness="0,2,0,0" BorderBrush="#FFBDBDBD" Background="#FFE6E6E6">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock x:Name="textBlock1" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                        <TextBlock x:Name="textBlock2" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                        <TextBlock x:Name="textBlock3" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                        <TextBlock x:Name="textBlock4" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                        <TextBlock x:Name="textBlock5" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                        <TextBlock x:Name="textBlock6" FontSize="12" TextWrapping="Wrap" Background="#FFC7C7C7" TextAlignment="Center" Margin="0,0,0,10" Height="60" Width="160"></TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
