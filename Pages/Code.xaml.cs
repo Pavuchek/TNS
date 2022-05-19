@@ -39,10 +39,5 @@ namespace Assets.Pages
         {
             InitializeComponent();
         }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-
-        }
     }
 }
